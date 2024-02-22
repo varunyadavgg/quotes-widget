@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quote Widget</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&display=swap">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Bangers', cursive;
+      background-color: #212121; /* Dark background color */
+      color: #fff; /* Light text color */
       text-align: center;
     }
     #quote-container {
@@ -15,36 +17,36 @@
       padding: 20px;
       max-width: 600px;
       border-radius: 10px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #333; /* Darker container background */
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Neon-like box shadow */
     }
     #quote-text {
-      font-size: 24px;
-      color: #333;
+      font-size: 36px;
+      color: #00ffdd; /* Neon-like text color */
       margin-bottom: 20px;
     }
     #author {
-      font-size: 18px;
-      color: #555;
+      font-size: 24px;
+      color: #ffea00; /* Neon-like author color */
       margin-bottom: 10px;
     }
     #date {
-      font-size: 14px;
-      color: #777;
+      font-size: 18px;
+      color: #888; /* Lighter text color */
       margin-bottom: 20px;
     }
     #refresh-btn {
       padding: 10px 20px;
       font-size: 16px;
-      background-color: #007bff;
-      color: #fff;
+      background-color: #00ffdd; /* Neon-like button color */
+      color: #212121; /* Dark button text color */
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
     #refresh-btn:hover {
-      background-color: #0056b3;
+      background-color: #00e0b3; /* Darker neon-like button color on hover */
     }
   </style>
 </head>
