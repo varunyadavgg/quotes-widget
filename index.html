@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Widget</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    #quote-container {
+      margin: 50px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #quote-text {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    #author {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    #date {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+    #refresh-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #refresh-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="quote-container">
+    <div id="quote-text"></div>
+    <div id="author"></div>
+    <div id="date"></div>
+    <button id="refresh-btn">Refresh Quote</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const quoteText = document.getElementById('quote-text');
+      const author = document.getElementById('author');
+      const date = document.getElementById('date');
+      const refreshBtn = document.getElementById('refresh-btn');
+
+      let quotes = []; // Array to store quotes
+
+      // Load quotes from quotes.json
+      fetch('quotes.json')
+        .then(response => response.json())
+        .then(data => {
+          quotes = data;
+          displayQuote();
+        })
+        .catch(error => console.error('Error loading quotes:', error));
+
+      function getRandomQuote() {
+        return quotes[Math.floor(Math.random() * quotes.length)];
+      }
+
+      function displayQuote() {
+        const randomQuote = getRandomQuote();
+        quoteText.textContent = randomQuote.Quote;
+        author.textContent = `- ${randomQuote.Author}`;
+        date.textContent = `Date: ${new Date().toLocaleDateString()}`;
+      }
+
+      refreshBtn.addEventListener('click', displayQuote);
+    });
+  </script>
+</body>
+</html>
